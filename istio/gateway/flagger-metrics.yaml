@@ -2,11 +2,11 @@ apiVersion: flagger.app/v1beta1
 kind: MetricTemplate
 metadata:
   name: error-rate
-  namespace: istio-system
+  namespace: istio-system-gitops
 spec:
   provider:
     type: prometheus
-    address: http://prometheus.istio-system:9090
+    address: http://prometheus.istio-system-gitops:9090
   query: |
     100 - sum(
         rate(
@@ -34,11 +34,11 @@ apiVersion: flagger.app/v1beta1
 kind: MetricTemplate
 metadata:
   name: latency
-  namespace: istio-system
+  namespace: istio-system-gitops
 spec:
   provider:
     type: prometheus
-    address: http://prometheus.istio-system:9090
+    address: http://prometheus.istio-system-gitops:9090
   query: |
     histogram_quantile(
         0.99,
