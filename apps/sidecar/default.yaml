@@ -7,4 +7,4 @@ spec:
   egress:
     - hosts:
         - "prod/*"
-        - "istio-system-gitops/*"
+        - "istio-system/*"
