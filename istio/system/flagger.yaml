@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: flagger
-  namespace: istio-system-gitops
+  namespace: istio-system
 spec:
   interval: 1h0m0s
   url: https://flagger.app
@@ -11,7 +11,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: flagger
-  namespace: istio-system-gitops
+  namespace: istio-system
 spec:
   chart:
     spec:
@@ -27,13 +27,13 @@ spec:
     crds: CreateReplace
   values:
     meshProvider: istio
-    metricsServer: http://prometheus.istio-system-gitops:9090
+    metricsServer: http://prometheus.istio-system:9090
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: flagger-grafana
-  namespace: istio-system-gitops
+  namespace: istio-system
 spec:
   chart:
     spec:
@@ -44,4 +44,4 @@ spec:
   interval: 1h0m0s
   releaseName: flagger-grafana
   values:
-    url: http://prometheus.istio-system-gitops:9090
+    url: http://prometheus.istio-system:9090
