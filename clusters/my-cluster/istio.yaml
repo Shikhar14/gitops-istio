@@ -20,7 +20,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
-  name: istio-system
+  name: istio-system-gitops
   namespace: flux-system
 spec:
   dependsOn:
@@ -36,15 +36,15 @@ spec:
     - apiVersion: apps/v1
       kind: Deployment
       name: istiod
-      namespace: istio-system
+      namespace: istio-system-gitops
     - apiVersion: apps/v1
       kind: Deployment
       name: prometheus
-      namespace: istio-system
+      namespace: istio-system-gitops
     - apiVersion: apps/v1
       kind: Deployment
       name: flagger
-      namespace: istio-system
+      namespace: istio-system-gitops
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
@@ -53,7 +53,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: istio-system
+    - name: istio-system-gitops
   interval: 10m0s
   sourceRef:
     kind: GitRepository

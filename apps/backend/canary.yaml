@@ -38,14 +38,14 @@ spec:
       - name: error-rate
         templateRef:
           name: error-rate
-          namespace: istio-system
+          namespace: istio-system-gitops
         thresholdRange:
           max: 1
         interval: 30s
       - name: latency
         templateRef:
           name: latency
-          namespace: istio-system
+          namespace: istio-system-gitops
         thresholdRange:
           max: 500
         interval: 30s
