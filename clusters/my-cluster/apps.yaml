@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 30m0s
   dependsOn:
-    - name: istio-system
+    - name: istio-system-gitiops
   sourceRef:
     kind: GitRepository
     name: flux-system
